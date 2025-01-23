@@ -21,20 +21,21 @@
 
         .ticket {
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
             background-color: white;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: left;
             padding: 0;
+            position: relative;
         }
 
         .ticket-header {
             display: flex;
             align-items: center;
             margin: 0;
-            padding: 10px;
+            padding: 13px;
         }
 
         .ticket-header img {
@@ -59,9 +60,23 @@
             margin: 0;
         }
 
+        .ticket-db-number {
+            display: flex;
+            align-items: center;
+            margin: 5px 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .ticket-db-number img {
+            width: 39px;
+            height: auto;
+            margin-right: 5px;
+        }
+
         .qr-code {
-            margin: 0;
-            padding: 15px;
+            margin: 5px 10px;
+            padding: 0;
             text-align: left;
         }
 
@@ -69,7 +84,7 @@
             width: 345px;
             max-width: 345px;
             height: 345px;
-            margin: -10px;
+            
         }
 
         .ticket-details {
@@ -95,16 +110,13 @@
             padding: 10px;
             font-size: 16px;
             font-weight: bold;
-            color: #000; /* Чёрный текст для контраста */
-            background-color: #ffffff; /* Яркий белый фон */
-            border-bottom: 1px solid #ffffff; /* Более мягкая нижняя граница */
-            border: none; /* Убираем лишние границы */
-            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15); /* Чуть более заметная тень */
-            border-radius: 2px; /* Лёгкое закругление краёв */
+            color: #000;
+            background-color: #ffffff;
+            border-bottom: 1px solid #ffffff;
+            border: none;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+            border-radius: 2px;
         }
-        
-        
-        
 
         .back-button span {
             margin-left: 20px;
@@ -115,16 +127,46 @@
             height: 20px;
         }
 
-        button{
-            display: flex;
-        align-items: center;
-        padding: 2px;
-        font-size: 16px;
-        font-weight: bold;
-        color: #000;
-        background-color: transparent; /* Прозрачный фон */
-        border: none; /* Границы невидимы */
-        box-shadow: none; /* Убираем тень, если есть */
+        .fullscreen-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #fcfcfc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .fullscreen-button:hover {
+            background-color: #ffffff;
+            color: white;
+        }
+
+        /* Fullscreen styles */
+        :-webkit-full-screen {
+            background-color: rgb(255, 255, 255);
+        }
+
+        :-moz-full-screen {
+            background-color: rgb(255, 255, 255);
+        }
+
+        :-ms-fullscreen {
+            background-color: rgb(255, 255, 255);
+        }
+
+        :fullscreen {
+            background-color: rgb(255, 255, 255);
+        }
+
+        .color {
+            background-color: rgb(255, 255, 255);
+            border: none;
         }
     </style>
 </head>
@@ -133,7 +175,7 @@
     <div class="ticket">
         <!-- Back Button -->
         <div class="back-button">
-            <button> <a href="https://www.bahn.de/">
+            <button class="color"> <a href="https://www.bahn.de/">
             <img src="https://i.postimg.cc/8z4GMJ3p/2025-01-22-103820.png" alt="Back Arrow"></a>
             </button>
             <span> Subscription</span>
@@ -181,7 +223,42 @@ Gesamtpreis: 58,00 EUR <br>
 Gebucht am 29.05.2023 um 15:52 Uhr
             </div>
         </div>
+
+        <!-- Fullscreen Toggle Button -->
+        <button class="fullscreen-button" id="fullscreenToggle" onclick="toggleFullscreen();"></button>
     </div>
+
+    <script>
+        var elem = document.documentElement;
+        var isFullscreen = false;
+
+        function toggleFullscreen() {
+            if (!isFullscreen) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.mozRequestFullScreen) { /* Firefox */
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                    elem.msRequestFullscreen();
+                }
+                document.getElementById("fullscreenToggle").textContent = "";
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                document.getElementById("fullscreenToggle").textContent = "";
+            }
+            isFullscreen = !isFullscreen;
+        }
+    </script>
 </body>
 
 </html>
