@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Deutschland-Ticket</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            max-width: auto;
+            height: auto;
+        }
+
+        .ticket {
+            width: 100%;
+            max-width: 450px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            padding: 0;
+            position: relative;
+        }
+
+        .ticket-header {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 13px;
+        }
+
+        .ticket-header img {
+            width: 40px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .ticket-header .title-container {
+            text-align: left;
+        }
+
+        .ticket-header .title {
+            font-size: auto;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .ticket-header .validity {
+            font-size: 12px;
+            color: #555;
+            margin: 0;
+        }
+
+        .ticket-db-number {
+            display: flex;
+            align-items: center;
+            margin: 5px 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .ticket-db-number img {
+            width: 39px;
+            height: auto;
+            margin-right: 5px;
+        }
+
+        .qr-code {
+            margin: 5px 10px;
+            padding: 0;
+            text-align: left;
+        }
+
+        .qr-code img {
+            width: 345px;
+            max-width: 345px;
+            height: 345px;
+            
+        }
+
+        .ticket-details {
+            text-align: left;
+            font-size: 14px;
+            color: #333;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .ticket-details .name {
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .ticket-details .validity {
+            margin: 5px 0 0 0;
+        }
+
+        .back-button {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            background-color: #ffffff;
+            border-bottom: 1px solid #ffffff;
+            border: none;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+            border-radius: 2px;
+        }
+
+        .back-button span {
+            margin-left: 20px;
+        }
+
+        .back-button img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .fullscreen-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #fcfcfc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .fullscreen-button:hover {
+            background-color: #ffffff;
+            color: white;
+        }
+
+        /* Fullscreen styles */
+        :-webkit-full-screen {
+            background-color: rgb(255, 255, 255);
+        }
+
+        :-moz-full-screen {
+            background-color: rgb(255, 255, 255);
+        }
+
+        :-ms-fullscreen {
+            background-color: rgb(255, 255, 255);
+        }
+
+        :fullscreen {
+            background-color: rgb(255, 255, 255);
+        }
+
+        .color {
+            background-color: rgb(255, 255, 255);
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ticket">
+        <!-- Back Button -->
+        <div class="back-button">
+            <button class="color"> <a href="https://www.bahn.de/">
+            <img src="https://i.postimg.cc/8z4GMJ3p/2025-01-22-103820.png" alt="Back Arrow"></a>
+            </button>
+            <span> Subscription</span>
+        </div>
+
+        <!-- Ticket Header -->
+        <div class="ticket-header">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgKcWCP3rVu5JXFZLfzJfu-qX39Ac7EfkVIw&s" alt="DB Logo">
+            <div class="title-container">
+                <div class="title">Deutschland-Ticket</div>
+                <div class="validity">Gültig vom 01.02.2025</div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- QR Code -->
+        <div class="qr-code">
+            <img src="https://i.postimg.cc/h4L3SsDX/2025-01-22-154105.png" alt="QR Code">
+        </div>
+
+        <!-- Ticket Details -->
+        <div class="ticket-details">
+            <div class="name">Nataliia Bondarenko</div>
+            <br>
+            <br>
+            <div>Deutschland-Ticket</div>
+            <div class="validity">Gültigkeit: vom 01.02.2025 bis 28.02.2025</div>
+            <div>Gilt im angegebenen Geltungszeitraum bundesweit für beliebig <br> viele Fahrten in allen
+                Nahverkehrszügen,
+                Verkehrsverbünden, Landestarifen und teilnehmenden Verkehrsunternehmen.</div>
+            <br>
+            <div>Klasse: 2, Pers.: 1</div>
+            <br>
+            <div>Nur gültig mit amtlichem Lichtbildausweis (z. B. Personalausweis). Dieser ist bei der Kontrolle
+                vorzuzeigen. <br>Es gelten die Tarifbedingungen des Deutschlandtarifs.</div>
+            <br>
+            <div>
+                Auftrags-Nr. (NVS): 417021433 <br>
+
+Position: 00/01 <br>
+
+Gesamtpreis: 58,00 EUR <br>
+
+Gebucht am 29.05.2023 um 15:52 Uhr
+            </div>
+        </div>
+
+        <!-- Fullscreen Toggle Button -->
+        <button class="fullscreen-button" id="fullscreenToggle" onclick="toggleFullscreen();"></button>
+    </div>
+
+    <script>
+        var elem = document.documentElement;
+        var isFullscreen = false;
+
+        function toggleFullscreen() {
+            if (!isFullscreen) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.mozRequestFullScreen) { /* Firefox */
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                    elem.msRequestFullscreen();
+                }
+                document.getElementById("fullscreenToggle").textContent = "";
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                document.getElementById("fullscreenToggle").textContent = "";
+            }
+            isFullscreen = !isFullscreen;
+        }
+    </script>
+</body>
+
+</html>
